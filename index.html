@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cara Menjaga Kesehatan Tubuh - IPAS Kelas V (SDN 58 Lubuklinggau)</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #047857;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-glass: #ffffff;
+            --text-dark: #0f172a;
+            --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Fredoka', 'Plus Jakarta Sans', sans-serif;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background: linear-gradient(135deg, #065f46 0%, #1e3a8a 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            overflow-x: hidden;
+        }
+
+        html {
+            height: -webkit-fill-available;
+        }
+
+        #app {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--bg-glass);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            height: 94vh;
+            max-height: 860px;
+            overflow: hidden;
+            border: 4px solid #ffffff;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .animated-view {
+            animation: fadeInSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInSlide {
+            from { opacity: 0; transform: translateY(12px) scale(0.99); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* HEADER HUD RESPONSIVE */
+        .app-header {
+            background: linear-gradient(90deg, #047857, #059669);
+            color: white;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #065f46;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .header-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .badge-pill {
+            background: #ffffff;
+            color: var(--primary-dark);
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-ui {
+            background: #f59e0b;
+            color: #78350f;
+            border: 2px solid #b45309;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 0 #b45309;
+        }
+        .btn-ui:active { transform: translateY(2px); box-shadow: 0 0px 0 #b45309; }
+
+        /* VIEW BODY */
+        .view-body {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: #f8fafc;
+        }
+
+        /* HOME SCREEN */
+        .home-banner {
+            text-align: center;
+            padding: 28px 16px;
+            background: linear-gradient(135deg, #34d399 0%, #3b82f6 100%);
+            border-radius: 20px;
+            border: 3px solid #ffffff;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            color: white;
+        }
+
+        .home-banner h1 {
+            font-size: 1.7rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.25);
+            line-height: 1.2;
+        }
+
+        .home-banner p {
+            font-size: 0.95rem;
+            max-width: 680px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        /* INPUT NAMA FORM */
+        .input-name-card {
+            background: white;
+            padding: 18px;
+            border-radius: 18px;
+            border: 3px solid #cbd5e1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .input-name-field {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: 2px solid var(--secondary);
+            border-radius: 14px;
+            outline: none;
+            text-align: center;
+            color: var(--text-dark);
+            background: #f8fafc;
+            user-select: text;
+        }
+        .input-name-field:focus {
+            border-color: var(--primary);
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+        }
+
+        /* BUTTONS */
+        .btn-main {
+            background: linear-gradient(180deg, #fbbf24, #f59e0b);
+            color: #78350f;
+            border: 3px solid #b45309;
+            padding: 12px 26px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #b45309;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 300px;
+        }
+        .btn-main:active { transform: translateY(3px) scale(0.98); box-shadow: 0 1px 0 #b45309; }
+
+        .btn-secondary {
+            background: #3b82f6;
+            color: white;
+            border: 3px solid #1d4ed8;
+            padding: 10px 18px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #1d4ed8;
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:active { transform: translateY(2px); box-shadow: 0 1px 0 #1d4ed8; }
+
+        /* CARDS & MATERIAL */
+        .content-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 16px;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .content-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .material-section-box {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary);
+            padding: 12px 14px;
+            border-radius: 12px;
+            margin-bottom: 6px;
+        }
+
+        .material-section-box h4 {
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+
+        .content-card p, .content-card li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+
+        .interactive-box {
+            background: #ecfdf5;
+            border: 2px dashed var(--primary);
+            padding: 14px;
+            border-radius: 14px;
+        }
+
+        /* GAME 1: KLASIFIKASI SEHAT / TIDAK SEHAT */
+        .sorter-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .drop-zone {
+            background: #f1f5f9;
+            border: 2px dashed var(--secondary);
+            border-radius: 14px;
+            padding: 14px 10px;
+            text-align: center;
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .drop-zone:hover { background: #eff6ff; border-color: var(--primary); }
+
+        .habit-item-badge {
+            background: white;
+            border: 2px solid #cbd5e1;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #cbd5e1;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        .habit-item-badge:hover { transform: scale(1.02); background: #f0fdf4; border-color: var(--primary); }
+
+        /* GAME 2: PILIHAN GANDA BERBOBOT / KASUS */
+        .choice-option {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 0 #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+        .choice-option.correct { background: #d1fae5 !important; border-color: var(--primary) !important; color: var(--primary-dark); }
+        .choice-option.wrong { background: #fee2e2 !important; border-color: var(--danger) !important; color: #991b1b; }
+
+        .type-tag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            border: 1px solid #bae6fd;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 2px dashed #cbd5e1;
+            margin-top: auto;
+            gap: 8px;
+        }
+
+        @media (min-width: 768px) {
+            body { padding: 16px; }
+            #app { border-radius: 28px; }
+            .app-header { padding: 16px 26px; }
+            .header-title { font-size: 1.25rem; }
+            .badge-pill { padding: 6px 16px; font-size: 0.95rem; }
+            .view-body { padding: 24px; gap: 18px; }
+            .home-banner { padding: 36px 24px; }
+            .home-banner h1 { font-size: 2.2rem; }
+            .home-banner p { font-size: 1.1rem; }
+            .btn-main { padding: 14px 34px; font-size: 1.2rem; width: auto; }
+            .btn-secondary { padding: 12px 22px; font-size: 1.05rem; }
+            .content-card { padding: 22px; border-radius: 22px; }
+            .content-card h3 { font-size: 1.4rem; }
+            .content-card p, .content-card li { font-size: 1.05rem; }
+            .sorter-container { grid-template-columns: repeat(2, 1fr); max-width: 600px; margin: 0 auto; }
+            .drop-zone { min-height: 140px; padding: 18px; }
+            .choice-option { padding: 16px 20px; font-size: 1.05rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Sound FX Synthesizer
+        class SoundFX {
+            constructor() { this.ctx = null; }
+            init() { if(!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)(); }
+            click() {
+                try {
+                    this.init();
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.frequency.setValueAtTime(400, this.ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(800, this.ctx.currentTime + 0.05);
+                    g.gain.setValueAtTime(0.08, this.ctx.currentTime);
+                    g.gain.exponentialRampToValueAtTime(0.01, this.ctx.currentTime + 0.05);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(); osc.stop(this.ctx.currentTime + 0.05);
+                }catch(e){}
+            }
+            correct() {
+                try {
+                    this.init();
+                    const now = this.ctx.currentTime;
+                    [523.25, 659.25, 783.99].forEach((freq, i) => {
+                        const osc = this.ctx.createOscillator();
+                        const g = this.ctx.createGain();
+                        osc.frequency.setValueAtTime(freq, now + i*0.08);
+                        g.gain.setValueAtTime(0.1, now + i*0.08);
+                        g.gain.exponentialRampToValueAtTime(0.01, now + i*0.08 + 0.15);
+                        osc.connect(g); g.connect(this.ctx.destination);
+                        osc.start(now + i*0.08); osc.stop(now + i*0.08 + 0.15);
+                    });
+                }catch(e){}
+            }
+            wrong() {
+                try {
+                    this.init();
+                    const now = this.ctx.currentTime;
+                    const osc = this.ctx.createOscillator();
+                    const g = this.ctx.createGain();
+                    osc.type = 'sawtooth';
+                    osc.frequency.setValueAtTime(160, now);
+                    osc.frequency.linearRampToValueAtTime(90, now + 0.2);
+                    g.gain.setValueAtTime(0.1, now);
+                    g.gain.exponentialRampToValueAtTime(0.01, now + 0.2);
+                    osc.connect(g); g.connect(this.ctx.destination);
+                    osc.start(); osc.stop(now + 0.2);
+                }catch(e){}
+            }
+        }
+        const sfx = new SoundFX();
+
+        function toggleFullScreen() {
+            sfx.click();
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => alert(`Gagal masuk Fullscreen: ${err.message}`));
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        }
+
+        // Materi Sesuai Modul Ajar IPAS Kelas V SDN 58 Lubuklinggau (Bab 1 Subbab C)
+        const materialModules = [
+            {
+                title: '1. Mengapa Kesehatan Tubuh Penting?',
+                content: `
+                    <div class="material-section-box">
+                        <h4>📌 Tanggung Jawab Diri Sendiri</h4>
+                        <p>Kesehatan tubuh perlu dijaga secara rutin sejak dini. Kesehatan tubuh erat kaitannya dengan kesehatan organ dan sistem organ di dalam tubuh kita.</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Setiap Orang Bertanggung Jawab:</strong> Tidak ada orang lain yang dapat menjaga tubuh kita sebaik diri kita sendiri. Menjaga kesehatan adalah wujud syukur kepada Tuhan Yang Maha Esa atas anugerah tubuh yang sehat.</li>
+                        <li><strong>Hubungan dengan Sistem Organ:</strong> Jika kita mengabaikan kesehatan, sistem pencernaan, pernapasan, dan peredaran darah akan terganggu sehingga memicu berbagai penyakit.</li>
+                    </ul>
+                `,
+                interactive: `💡 <strong>Refleksi Modul:</strong> "Setiap orang bertanggung jawab menjaga kesehatan tubuhnya masing-masing."`
+            },
+            {
+                title: '2. Jaga Kesehatan Fisik dan Mental',
+                content: `
+                    <div class="material-section-box">
+                        <h4>🧠 Keseimbangan Jasmani dan Rohani</h4>
+                        <p>Menjaga kesehatan bukan hanya tentang merawat fisik (tubuh luar dan dalam), tetapi juga menjaga kesehatan mental (pikiran dan perasaan).</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Kesehatan Fisik:</strong> Tubuh bugar, berenergi, dan organ berfungsi optimal.</li>
+                        <li><strong>Kesehatan Mental:</strong> Mengelola stres dengan baik, berpikir positif, merasa gembira, serta meluangkan waktu melakukan hobi atau hal-hal yang disukai secara positif.</li>
+                    </ul>
+                `,
+                interactive: `🧘‍♀️ <strong>Tips:</strong> Luangkan waktu untuk bersantai, menggambar, membaca buku favorit, atau berinteraksi positif dengan keluarga dan teman.`
+            },
+            {
+                title: '3. Makan Makanan Sehat dan Seimbang',
+                content: `
+                    <div class="material-section-box">
+                        <h4>🥗 Nutrisi Pembangun dan Sumber Tenaga</h4>
+                        <p>Konsumsi makanan yang mengandung gizi seimbang sangat diperlukan untuk pertumbuhan dan aktivitas sehari-hari.</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Karbohidrat:</strong> Sumber tenaga utama (nasi, jagung, ubi, roti).</li>
+                        <li><strong>Protein:</strong> Pertumbuhan sel dan otot (ikan, telur, tahu, tempe).</li>
+                        <li><strong>Vitamin & Mineral:</strong> Menjaga daya tahan tubuh dan mencegah penyakit (sayur-sayuran hijau dan buah-buahan segar).</li>
+                        <li><strong>Lemak Sehat:</strong> Membantu penyerapan vitamin dan cadangan energi.</li>
+                    </ul>
+                `,
+                interactive: `
+                    <h4>🥗 Cek Pemahaman Zat Gizi:</h4>
+                    <p style="margin-bottom: 8px;">Manakah makanan berikut yang berfungsi sebagai sumber protein hewani untuk pertumbuhan sel?</p>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="btn-secondary" onclick="sfx.click(); checkFood('nasi')">Nasi Putih</button>
+                        <button class="btn-secondary" onclick="sfx.click(); checkFood('ikan')">Ikan Segar 🐟</button>
+                        <button class="btn-secondary" onclick="sfx.click(); checkFood('jeruk')">Buah Jeruk</button>
+                    </div>
+                    <p id="food-res" style="margin-top:8px; font-weight:bold;"></p>
+                `
+            },
+            {
+                title: '4. Olahraga dan Istirahat Cukup',
+                content: `
+                    <div class="material-section-box">
+                        <h4>⚽ Kebugaran dan Pemulihan Energi</h4>
+                        <p>Aktivitas fisik dan istirahat yang seimbang membuat tubuh tidak mudah lelah.</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Olahraga Rutin:</strong> Berolahraga minimal dua kali seminggu (seperti senam, sepak bola, bersepeda, atau berenang) untuk melatih kekuatan jantung dan otot.</li>
+                        <li><strong>Tidur atau Istirahat Cukup:</strong> Tidur malam yang cukup membantu memulihkan sel-sel tubuh yang lelah serta memudahkan kita berkonsentrasi belajar keesokan harinya.</li>
+                    </ul>
+                `,
+                interactive: `⏰ <strong>Info Penting:</strong> Anak usia kelas V SD memerlukan waktu tidur malam 9-10 jam agar tubuh segar dan organ beristirahat optimal.`
+            },
+            {
+                title: '5. Jaga Kebersihan Diri dan Lingkungan',
+                content: `
+                    <div class="material-section-box">
+                        <h4>🧼 Mencegah Masuknya Kuman Penyakit</h4>
+                        <p>Kebersihan adalah kunci utama terhindar dari berbagai infeksi dan penyakit menular.</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Kebersihan Diri:</strong> Rajin mandi, mencuci tangan dengan sabun sebelum makan, serta menjaga kebersihan gigi, kulit, dan pakaian.</li>
+                        <li><strong>Kebersihan Lingkungan:</strong> Membersihkan lingkungan sekitar, membuang sampah pada tempatnya, dan mencegah genangan air.</li>
+                    </ul>
+                `,
+                interactive: `🧼 <strong>Kasus Edo:</strong> Edo selalu mencuci tangan sebelum makan dan menjaga kebersihan. Kebiasaan ini sangat baik untuk mencegah kuman masuk ke dalam sistem pencernaan!`
+            },
+            {
+                title: '6. Hindari Kebiasaan Buruk',
+                content: `
+                    <div class="material-section-box" style="border-left-color: var(--danger);">
+                        <h4 style="color:var(--danger);">⚠️ Pantangan Bagi Kesehatan Organ</h4>
+                        <p>Ada kebiasaan buruk yang dapat mengganggu kesehatan organ tubuh secara serius dan wajib dihindari.</p>
+                    </div>
+                    <ul style="margin-left: 18px; display: flex; flex-direction: column; gap: 8px;">
+                        <li><strong>Merokok:</strong> Asap rokok mengandung zat beracun yang merusak kantung udara di dalam paru-paru dan memicu gangguan jantung.</li>
+                        <li><strong>Kurang Tidur / Begadang:</strong> Sering tidur terlalu larut malam melemahkan sistem kekebalan tubuh dan menurunkan konsentrasi belajar.</li>
+                    </ul>
+                `,
+                interactive: `🌿 <strong>Komitmen:</strong> Jauhi rokok, cukupi waktu tidur, dan jadilah teladan dalam pola hidup bersih dan sehat!`
+            }
+        ];
+
+        // State Aplikasi
+        let state = {
+            screen: 'home',
+            studentName: '',
+            matIndex: 0,
+            score: 0,
+            // Game 1: Klasifikasi Sehat (S) atau Tidak Sehat (TS)
+            game1Score: 0,
+            game1Habits: [
+                { id: 1, name: '🌙 Begadang sampai larut malam', cat: 'TS', reason: 'Melemahkan tubuh dan mengganggu fungsi organ.' },
+                { id: 2, name: '🧼 Mencuci tangan dengan sabun sebelum makan', cat: 'S', reason: 'Membunuh kuman penyebab sakit perut.' },
+                { id: 3, name: '🚬 Merokok', cat: 'TS', reason: 'Merusak jaringan paru-paru dan jantung.' },
+                { id: 4, name: '⚽ Berolahraga dua kali seminggu', cat: 'S', reason: 'Menjaga kebugaran dan kekuatan jantung.' }
+            ],
+            game1Completed: false,
+            // Game 2: Studi Kasus & Kuis HOTS
+            game2Index: 0,
+            game2Score: 0,
+            game2Questions: [
+                {
+                    typeTag: "📌 Studi Kasus Edo",
+                    q: "Edo selalu mencuci tangan sebelum makan dan menjaga kebersihan dirinya, tetapi teman-temannya menganggap Edo terlalu berhati-hati. Apakah kamu setuju dengan anggapan teman-teman Edo? Jelaskan!",
+                    opts: [
+                        { text: "Tidak setuju, karena kebersihan adalah benteng utama pencegahan kuman penyakit.", correct: true, exp: "Tepat sekali! Mencuci tangan sebelum makan adalah tindakan sangat tepat untuk membunuh kuman dan mencegah sakit perut." },
+                        { text: "Setuju, karena terlalu sering cuci tangan membuat air cepat habis dan merepotkan.", correct: false, exp: "Kurang tepat! Menjaga kebersihan diri adalah kewajiban mutlak untuk melindungi kesehatan organ pencernaan." }
+                    ]
+                },
+                {
+                    typeTag: "🥗 Analisis Manfaat Gizi",
+                    q: "Mengapa tubuh kita sangat memerlukan konsumsi buah-buahan dan sayuran hijau setiap hari?",
+                    opts: [
+                        { text: "Karena sayur dan buah kaya akan vitamin dan mineral sebagai pelindung daya tahan tubuh.", correct: true, exp: "Sempurna! Vitamin dan mineral dalam sayur-buah berfungsi sebagai zat pengatur dan pelindung dari berbagai penyakit." },
+                        { text: "Karena sayur dan buah merupakan satu-satunya sumber karbohidrat penghasil tenaga.", correct: false, exp: "Salah! Sumber tenaga utama adalah karbohidrat (seperti nasi, ubi, roti), bukan sayur dan buah." }
+                    ]
+                },
+                {
+                    typeTag: "⏰ Evaluasi Pola Istirahat",
+                    q: "Apa akibat yang paling dirasakan pada tubuh jika seseorang sering tidur terlalu malam (begadang) setiap hari?",
+                    opts: [
+                        { text: "Badan menjadi bugar dan konsentrasi belajar di kelas semakin meningkat.", correct: false, exp: "Bertolak belakang! Kurang tidur justru membuat badan lemas, mengantuk, dan sulit berkonsentrasi." },
+                        { text: "Sistem kekebalan tubuh menurun dan tubuh mudah terserang penyakit.", correct: true, exp: "Benar! Istirahat cukup sangat esensial untuk memulihkan sel-sel tubuh dan menjaga sistem imun." }
+                    ]
+                },
+                {
+                    typeTag: "❤️ Analisis Bahaya Merokok",
+                    q: "Perhatikan kebiasaan buruk merokok. Mengapa kebiasaan ini sangat dilarang bagi kesehatan sistem organ tubuh?",
+                    opts: [
+                        { text: "Karena asap rokok merusak jaringan kantung udara di dalam paru-paru dan peredaran darah.", correct: true, exp: "Tepat! Zat racun dalam rokok seperti tar dan nikotin merusak organ pernapasan dan memicu penyakit berbahaya." },
+                        { text: "Karena merokok hanya membuat pakaian menjadi berbau harum bunga.", correct: false, exp: "Sangat salah! Rokok justru menimbulkan bau tidak sedap dan merusak organ vital secara permanen." }
+                    ]
+                },
+                {
+                    typeTag: "🌿 Kesimpulan Tanggung Jawab Diri",
+                    q: "Rina berkata, 'Menjaga kesehatan tubuh cukup dengan makan bergizi saja, olahraga dan tidur tidak terlalu penting.' Bagaimana tanggapanmu terhadap pernyataan Rina?",
+                    opts: [
+                        { text: "Pernyataan Rina keliru, karena kesehatan utuh membutuhkan kombinasi makanan bergizi, olahraga, istirahat, dan kebersihan.", correct: true, exp: "Luar biasa! Kesehatan adalah paket lengkap yang membutuhkan gizi seimbang, olahraga teratur, tidur cukup, dan hidup bersih." },
+                        { text: "Pernyataan Rina benar, karena makanan bergizi sudah mencakup seluruh kebutuhan organ.", correct: false, exp: "Keliru! Tanpa olahraga dan istirahat yang cukup, tubuh tetap akan mengalami kelelahan dan penurunan kebugaran." }
+                    ]
+                }
+            ]
+        };
+
+        function startAdventure() {
+            const nameInput = document.getElementById('student-name-input');
+            const val = nameInput ? nameInput.value.trim() : '';
+            if(!val) {
+                alert("Silakan masukkan nama lengkapmu terlebih dahulu sebelum memulai!");
+                if(nameInput) nameInput.focus();
+                return;
+            }
+            sfx.click();
+            state.studentName = val;
+            state.screen = 'objectives';
+            render();
+        }
+
+        function checkFood(choice) {
+            const el = document.getElementById('food-res');
+            if(choice === 'ikan') {
+                sfx.correct();
+                el.innerText = "✅ Benar! Ikan adalah sumber protein hewani untuk pertumbuhan sel.";
+                el.style.color = "#047857";
+            } else {
+                sfx.wrong();
+                el.innerText = "❌ Kurang tepat. Nasi = karbohidrat, Jeruk = vitamin. Pilih Ikan!";
+                el.style.color = "#991b1b";
+            }
+        }
+
+        function render() {
+            const app = document.getElementById('app');
+            app.innerHTML = '';
+            app.appendChild(renderHeader());
+
+            const body = document.createElement('div');
+            body.className = 'view-body animated-view';
+
+            if(state.screen === 'home') {
+                body.innerHTML = `
+                    <div class="home-banner">
+                        <div style="font-size: 2.8rem;">🏫🌿</div>
+                        <h1>CARA MENJAGA KESEHATAN TUBUH</h1>
+                        <p>Modul IPAS Kelas V (Fase C) • SDN 58 Lubuklinggau</p>
+                        
+                        <div class="input-name-card">
+                            <label style="font-weight:700; color:var(--primary-dark); font-size:1rem;">
+                                <i class="fa-solid fa-user-pen"></i> Nama Lengkap Siswa:
+                            </label>
+                            <input type="text" id="student-name-input" class="input-name-field" placeholder="Ketik nama kamu di sini..." value="${state.studentName}">
+                            <button class="btn-main" onclick="startAdventure()"><i class="fa-solid fa-play"></i> MULAI BELAJAR 🎒</button>
+                        </div>
+                    </div>
+                `;
+            } else if(state.screen === 'objectives') {
+                body.innerHTML = `
+                    <div class="content-card">
+                        <h3><i class="fa-solid fa-bullseye" style="color:var(--accent)"></i> Tujuan Pembelajaran (Modul Ajar)</h3>
+                        <p>Halo, <strong>${state.studentName}</strong>! Melalui pembelajaran ini, kamu akan mampu:</p>
+                        <ul style="margin-left:18px; display:flex; flex-direction:column; gap:8px;">
+                            <li>Mengidentifikasi minimal 5 cara menjaga kesehatan tubuh dari teks dan materi.</li>
+                            <li>Menjawab pertanyaan bacaan dan mencatat hasil temuan pada tabel kesehatan.</li>
+                            <li>Menjelaskan pentingnya kebersihan diri dan pola hidup sehat melalui diskusi kasus.</li>
+                            <li>Menyimpulkan bahwa setiap orang bertanggung jawab menjaga kesehatan tubuhnya.</li>
+                        </ul>
+                    </div>
+                    <div style="display:flex; justify-content:flex-end;">
+                        <button class="btn-main" onclick="sfx.click(); state.screen='materials'; state.matIndex=0; render();">MASUK MATERI ➔</button>
+                    </div>
+                `;
+            } else if(state.screen === 'materials') {
+                const mod = materialModules[state.matIndex];
+                body.innerHTML = `
+                    <div class="stepper-container" style="display:flex; gap:4px; justify-content:center; flex-wrap:wrap;">
+                        ${materialModules.map((m, idx) => `
+                            <div class="step-pill" style="padding:4px 10px; background:${state.matIndex === idx ? '#10b981' : '#e2e8f0'}; color:${state.matIndex === idx ? '#fff' : '#64748b'}; border-radius:12px; font-weight:700; font-size:0.75rem; border: 1.5px solid ${state.matIndex === idx ? '#047857' : '#cbd5e1'};">
+                                Bagian ${idx + 1}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="content-card" style="flex:1;">
+                        <h3><i class="fa-solid fa-book-open" style="color:var(--primary-dark)"></i> ${mod.title}</h3>
+                        <div>${mod.content}</div>
+                        <div class="interactive-box">${mod.interactive}</div>
+                    </div>
+                    <div class="footer-nav">
+                        <button class="btn-secondary" onclick="sfx.click(); prevMat();">${state.matIndex === 0 ? 'Beranda' : '« Sebelumnya'}</button>
+                        <button class="btn-main" style="width:auto;" onclick="sfx.click(); nextMat();">${state.matIndex === materialModules.length - 1 ? 'Lanjut ke Game 1 ➔' : 'Selanjutnya »'}</button>
+                    </div>
+                `;
+            } else if(state.screen === 'game1') {
+                body.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="font-size:1.05rem;"><i class="fa-solid fa-clipboard-check" style="color:var(--accent)"></i> Game 1: Sehat (S) atau Tidak Sehat (TS) (50 Poin)</h3>
+                        <span style="font-weight:800; color:var(--primary-dark); font-size:0.85rem;">Skor: ${state.game1Score} / 50</span>
+                    </div>
+                    <div class="content-card">
+                        <p style="font-weight:600; font-size:0.9rem;">Hai <strong>${state.studentName}</strong>, pilih kebiasaan di bawah lalu kelompokkan ke keranjang <strong>Sehat (S)</strong> atau <strong>Tidak Sehat (TS)</strong>!</p>
+                        
+                        <div style="display:flex; gap:6px; flex-wrap:wrap; margin:8px 0;" id="habit-pool">
+                            ${state.game1Habits.map(item => `
+                                <div class="habit-item-badge" id="habit-${item.id}" onclick="selectHabit(${item.id})">${item.name}</div>
+                            `).join('')}
+                        </div>
+
+                        <div class="sorter-container">
+                            <div class="drop-zone" onclick="dropHabit('S')">
+                                <h4 style="color:var(--primary-dark);"><i class="fa-solid fa-circle-check"></i> SEHAT (S)</h4>
+                                <p style="font-size:0.75rem; color:#64748b;">Mendukung kesehatan tubuh</p>
+                            </div>
+                            <div class="drop-zone" onclick="dropHabit('TS')">
+                                <h4 style="color:var(--danger);"><i class="fa-solid fa-circle-xmark"></i> TIDAK SEHAT (TS)</h4>
+                                <p style="font-size:0.75rem; color:#64748b;">Merusak organ & kesehatan</p>
+                            </div>
+                        </div>
+                        <p id="game1-feedback" style="font-weight:bold; font-size:0.95rem; margin-top:8px;"></p>
+                    </div>
+                    <div class="footer-nav">
+                        <div></div>
+                        <button class="btn-main" id="game1-next-btn" style="display:${state.game1Completed ? 'block' : 'none'}; width:auto;" onclick="sfx.click(); state.screen='game2'; render();">Lanjut ke Game 2 ➔</button>
+                    </div>
+                `;
+            } else if(state.screen === 'game2') {
+                const q = state.game2Questions[state.game2Index];
+                body.innerHTML = `
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                        <h3 style="font-size:1.05rem;"><i class="fa-solid fa-puzzle-piece" style="color:var(--secondary)"></i> Game 2: Studi Kasus & Evaluasi HOTS (50 Poin)</h3>
+                        <span style="font-weight:800; color:var(--primary-dark); font-size:0.85rem;">Soal ${state.game2Index + 1}/5 (Skor: ${state.game2Score})</span>
+                    </div>
+                    <div class="content-card">
+                        <span class="type-tag">${q.typeTag}</span>
+                        <h4 style="color:var(--text-dark); font-size:1rem; line-height:1.4;">${q.q}</h4>
+                        <div style="display:flex; flex-direction:column; gap:8px; margin-top:6px;" id="g2-opts">
+                            ${q.opts.map((opt, idx) => `
+                                <button class="choice-option" id="g2-opt-${idx}" onclick="answerGame2(${idx})">${opt.text}</button>
+                            `).join('')}
+                        </div>
+                        <div id="g2-feedback" style="font-weight:bold; font-size:0.95rem; margin-top:6px;"></div>
+                    </div>
+                    <div class="footer-nav">
+                        <div></div>
+                        <button class="btn-main" id="g2-next-btn" style="display:none; width:auto;" onclick="sfx.click(); nextGame2();">Soal Lanjut ➔</button>
+                    </div>
+                `;
+            } else if(state.screen === 'success') {
+                const finalTotal = state.game1Score + state.game2Score;
+                state.score = finalTotal;
+                body.innerHTML = `
+                    <div class="content-card" style="text-align:center; padding:20px;">
+                        <div style="font-size:3.5rem;">🏆✨</div>
+                        <h2 style="color:var(--primary-dark); font-size:1.4rem;">HEBAT, ${state.studentName.toUpperCase()}!</h2>
+                        <p style="font-size:0.95rem; margin-top:4px; color:#475569;">Kamu telah menuntaskan Modul IPAS Kelas V <strong>SDN 58 Lubuklinggau</strong> dengan luar biasa!</p>
+                        <div style="background:#ecfdf5; border:2px dashed var(--primary); padding:14px; border-radius:16px; max-width:340px; margin:14px auto;">
+                            <p style="font-size:0.85rem; font-weight:700; color:#047857;">Sertifikat Capaian Belajar:</p>
+                            <p style="font-size:1.1rem; font-weight:800; color:var(--primary-dark); margin:4px 0;">${state.studentName}</p>
+                            <p style="font-size:1.5rem; font-weight:800; color:var(--primary-dark);">Total Nilai: ${finalTotal} / 100</p>
+                            <p style="margin-top:4px; font-weight:700; color:#047857; font-size:0.85rem;">⭐ Setiap orang bertanggung jawab menjaga kesehatan tubuhnya!</p>
+                        </div>
+                        <button class="btn-main" onclick="sfx.click(); restart();"><i class="fa-solid fa-rotate-right"></i> Ulangi Pembelajaran 🔄</button>
+                    </div>
+                `;
+            }
+
+            app.appendChild(body);
+        }
+
+        function renderHeader() {
+            const h = document.createElement('div');
+            h.className = 'app-header';
+            h.innerHTML = `
+                <div class="header-title"><i class="fa-solid fa-school" style="color:#fde047;"></i> SDN 58 Lubuklinggau</div>
+                <div class="header-stats">
+                    ${state.studentName ? `<div class="badge-pill" style="background:#ecfdf5; color:var(--primary-dark);"><i class="fa-solid fa-user"></i> ${state.studentName}</div>` : ''}
+                    <div class="badge-pill"><i class="fa-solid fa-star" style="color:#f59e0b;"></i> ${state.game1Score + state.game2Score} / 100</div>
+                    <button class="btn-ui" onclick="toggleFullScreen()"><i class="fa-solid fa-expand"></i> ⛶</button>
+                    <button class="btn-ui" onclick="sfx.click(); state.screen='home'; render();">Beranda</button>
+                </div>
+            `;
+            return h;
+        }
+
+        function prevMat() { if(state.matIndex > 0) state.matIndex--; else state.screen = 'home'; render(); }
+        function nextMat() { if(state.matIndex < materialModules.length - 1) state.matIndex++; else { state.screen = 'game1'; } render(); }
+
+        // Game 1 Logic (Klasifikasi S / TS)
+        let selectedHabitId = null;
+        function selectHabit(id) {
+            sfx.click();
+            document.querySelectorAll('.habit-item-badge').forEach(el => el.style.borderColor = '#cbd5e1');
+            selectedHabitId = id;
+            document.getElementById(`habit-${id}`).style.borderColor = '#3b82f6';
+        }
+
+        function dropHabit(targetCat) {
+            if(!selectedHabitId) {
+                document.getElementById('game1-feedback').innerText = "⚠️ Klik dulu salah satu kebiasaan di atas!";
+                document.getElementById('game1-feedback').style.color = "#d97706";
+                return;
+            }
+            const item = state.game1Habits.find(i => i.id === selectedHabitId);
+            const fb = document.getElementById('game1-feedback');
+
+            if(item.cat === targetCat) {
+                sfx.correct();
+                fb.innerHTML = `✅ Benar! ${item.name} adalah kategori <strong>${targetCat === 'S' ? 'Sehat (S)' : 'Tidak Sehat (TS)'}</strong>. Alasan: ${item.reason}`;
+                fb.style.color = "#047857";
+                state.game1Habits = state.game1Habits.filter(i => i.id !== selectedHabitId);
+                state.game1Score += 12.5; // 4 soal x 12.5 = 50 poin
+                if(state.game1Score > 50) state.game1Score = 50;
+                selectedHabitId = null;
+                render();
+
+                if(state.game1Habits.length === 0) {
+                    state.game1Completed = true;
+                    document.getElementById('game1-next-btn').style.display = 'block';
+                }
+            } else {
+                sfx.wrong();
+                fb.innerText = `❌ Kurang tepat. Coba pilih keranjang yang lain!`;
+                fb.style.color = "#991b1b";
+            }
+        }
+
+        // Game 2 Logic (Studi Kasus HOTS)
+        function answerGame2(idx) {
+            const q = state.game2Questions[state.game2Index];
+            document.querySelectorAll('.choice-option').forEach(o => o.style.pointerEvents = 'none');
+            const fb = document.getElementById('g2-feedback');
+
+            if(q.opts[idx].correct) {
+                sfx.correct();
+                document.getElementById(`g2-opt-${idx}`).classList.add('correct');
+                fb.innerHTML = `✅ ${q.opts[idx].exp}`;
+                fb.style.color = "#047857";
+                state.game2Score += 10; // 5 soal x 10 = 50 poin
+            } else {
+                sfx.wrong();
+                document.getElementById(`g2-opt-${idx}`).classList.add('wrong');
+                const correctIdx = q.opts.findIndex(o => o.correct);
+                document.getElementById(`g2-opt-${correctIdx}`).classList.add('correct');
+                fb.innerHTML = `❌ ${q.opts[idx].exp}`;
+                fb.style.color = "#991b1b";
+            }
+            document.getElementById('g2-next-btn').style.display = 'block';
+        }
+
+        function nextGame2() {
+            state.game2Index++;
+            if(state.game2Index < state.game2Questions.length) {
+                render();
+            } else {
+                state.screen = 'success';
+                render();
+            }
+        }
+
+        function restart() {
+            state = {
+                screen: 'home',
+                studentName: '',
+                matIndex: 0,
+                score: 0,
+                game1Score: 0,
+                game1Habits: [
+                    { id: 1, name: '🌙 Begadang sampai larut malam', cat: 'TS', reason: 'Melemahkan tubuh dan mengganggu fungsi organ.' },
+                    { id: 2, name: '🧼 Mencuci tangan dengan sabun sebelum makan', cat: 'S', reason: 'Membunuh kuman penyebab sakit perut.' },
+                    { id: 3, name: '🚬 Merokok', cat: 'TS', reason: 'Merusak jaringan paru-paru dan jantung.' },
+                    { id: 4, name: '⚽ Berolahraga dua kali seminggu', cat: 'S', reason: 'Menjaga kebugaran dan kekuatan jantung.' }
+                ],
+                game1Completed: false,
+                game2Index: 0,
+                game2Score: 0,
+                game2Questions: state.game2Questions
+            };
+            render();
+        }
+
+        window.onload = function() { render(); };
+    </script>
+</body>
+</html>
